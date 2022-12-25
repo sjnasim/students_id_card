@@ -1,0 +1,65 @@
+
+{% load static %}
+
+<html lang="en">
+<head>
+	
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>card</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{% static '/css/style1.css' %}" />
+  <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body style="background-color:  #0b124d">
+
+
+
+<div class="card-container">
+	<a href="https://naztech.io/">
+	<img width="170" height="50" src="http://127.0.0.1:8000/images/logoMetro.png" alt="user" > </a>
+	<br>
+	<img  width="156" 
+	height="160" style="border: 0px  " class="round" src="{{e.Image.url}}" alt="user" />
+	<h3  style="color: black; font-family: 'segoe ui';font-size: 25px;">{{e.name}}</h3>
+	<h3 style="color: rgb(23, 71, 175) ; font-size: 95% " ><b>{{e.position}} </b></h3>
+	
+	<p style="color: black; font-size: 90% ; font-family: arial"   >Student ID : {{e.employee_code}}</p>
+	<p style="color: black; font-size: 90% ; font-family: arial ">Blood Group :  <a style="text-transform: uppercase">{{e.blood_g}}</a></p>
+	<p style="color: black; font-size: 90% ; font-family:  arial">Joining Date : {{e.date_added}}</p>
+
+	{% if e.date_end %}
+	<p style="color: black; font-size: 90% ; font-family:arial">End Date : {{e.date_end}}</p>
+	{% endif %}
+
+	{% if not e.date_end %}
+	<p style="color: black; font-size: 90% ; font-family: arial">End Date : Running Student</p>
+	{% endif %}
+
+
+	<p style="color: rgb(23, 71, 175); font-size: 90% ; font-family:  arial "   ><b>{{e.status}}</b></p>
+	
+
+
+	
+	
+	
+	
+	<div class="skills">
+		<a href="https://metrouni.edu.bd//" ><button  type="button" class="btn btn-outline-primary">Visit Metropolitan University</button></a>
+		
+		
+		
+	</div>
+</div>
+
+<footer>
+	
+</footer>
+
+</body>
+</html>

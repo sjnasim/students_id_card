@@ -1,0 +1,73 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+{%  include 'accounts/status.html' %}
+
+<br>
+
+<div class="row">
+	
+
+	<div class="col-md-12">
+		<h5>List Of Students</h5>
+		<hr>
+		<div class="card card-body">
+			<a style="background-color: #3b4496" style="border-color:  #3b4496 " class="btn btn-primary  btn-sm btn-block" href="{% url 'create_emp' %}">Create Students</a>
+			<table class="table table-sm">
+				<tr>
+					
+					<th>ID</th>
+					<th>Name</th>
+					<th>Semester</th>
+					<th>JoinDate</th>
+					<th>EndDate</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>View</th>
+				</tr>
+
+				{% for employee in employee %} 
+						<tr>
+							
+							<td class="">{{employee.employee_code}}</td>
+							<td class="">{{employee.name}}</td>
+							<td class="">
+								<div class="lh-1">
+									<div>{{employee.department}}</div>
+									<div>{{employee.position}}</div>
+								</div>
+							</td>
+							
+							<td class="">{{employee.date_added}}</td>
+
+							{% if employee.date_end %}
+							<td class="">{{employee.date_end}}</td>
+							{% endif %}
+
+							{% if not employee.date_end %}
+							<td class="">Currently Working</td>
+							{% endif %}
+							
+							
+							
+							<td class="">{{employee.status}}</td>
+							
+
+							<td><a style="background-color: #3b4496" class="btn btn-sm btn-info" href="{% url 'update_emp' employee.employee_code %}">Update</a></td>
+
+						
+						<td><a style="background-color: #3b4496" class="btn btn-sm btn-info" href="{% url 'id' employee.employee_code %}">View</a></td>
+							
+						</tr>
+                            {% endfor %} 
+
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+

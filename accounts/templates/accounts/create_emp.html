@@ -1,0 +1,187 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Section: Design Block -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ID Card Generation</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+
+</head>
+<body>
+
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+          background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+          height: 300px;
+          "></div>
+    <!-- Background image -->
+  
+    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+          margin-top: -200px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(30px);
+          ">
+      <div class="card-body py-5 px-md-5">
+  
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="fw-bold mb-5">Create Student</h2>
+
+<!-- Error massage for same Employee ID  -->
+{% for message in messages %}
+
+<div class="alert alert-danger" role="alert">
+  {{message}}
+</div>
+        
+
+{% endfor %}	
+
+            
+            
+
+
+            <form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %}
+
+              <!-- 2 column grid layout with text inputs for the names -->
+			  <div class="form-outline mb-4">
+                {{form.name}}
+                <label class="form-label"  for="form3Example2">Full Name</label>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.employee_code}}
+                    <label class="form-label" for="form3Example1">Student ID</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.blood_g}} 
+                    <label class="form-label" for="form3Example2">Blood Group</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.gender}} 
+                    <label class="form-label" for="form3Example1">Gender</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.dob}} 
+                    <label class="form-label" for="form3Example2">Birth Date</label>
+                  </div>
+                </div>
+              </div> -->
+
+			  <!-- <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.phone}}
+                    <label class="form-label" for="form3Example1">Phone Number</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.email}}
+                    <label class="form-label" for="form3Example2">Email</label>
+                  </div>
+                </div>
+              </div> -->
+
+			  <div class="row">
+                <!-- <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.department}} 
+                    <label class="form-label" for="form3Example1">Department</label>
+                  </div>
+                </div> -->
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.position}} 
+                    <label class="form-label" for="form3Example2">Semester</label>
+                  </div>
+                </div>
+              </div>
+			  <br>
+
+			  <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.date_added}} 
+                    <label class="form-label" for="form3Example1">Joining Date</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{form.date_end}} 
+                    <label class="form-label" for="form3Example2">End Date</label>
+                  </div>
+                </div>
+              </div>
+
+			  <br>
+
+  
+             
+			  
+			   <div class="form-outline mb-4">
+                {{form.status}} 
+                <label class="form-label"  for="form3Example2">Status</label>
+              </div>
+  
+              <div  class="form-outline mb-4" required>
+                {{form.Image}}
+                
+              </div>
+
+              
+
+              
+			  <label  class="form-label" for="form3Example4">Profile Picture</label>
+
+			  <br>
+			  <br>
+  
+            
+  
+              <!-- Submit button -->
+              <button type="submit" style="background-color:  #0b124d"  class="btn btn-primary btn-block mb-4">
+                Submit
+              </button>
+  
+              
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
+
+
+
+{% endblock %}
+
+
